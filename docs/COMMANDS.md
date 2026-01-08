@@ -48,7 +48,13 @@ python3 ~/oak_scripts/stream.py
 ssh motorducky@oakcam1.local "ls -lh ~/recordings/"
 scp "motorducky@oakcam1.local:~/recordings/*.h265" ~/Desktop/
 ffmpeg -i ~/Desktop/FILE_rgb.h265 -c copy ~/Desktop/rgb.mp4
+
+# Mac terminal
+cd ~/Desktop/XXXXXX
+for f in *.h265; do ffmpeg -i "$f" -c copy "${f%.h265}.mp4"; done
 ```
+
+
 
 ## Troubleshooting - Camera Stuck
 ```bash
